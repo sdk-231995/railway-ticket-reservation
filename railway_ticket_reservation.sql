@@ -147,6 +147,37 @@ ADD CONSTRAINT fk_pnr
 FOREIGN KEY (pnr_no)
 REFERENCES ticket_reservation(pnr_no);
 
+CREATE TABLE pay_info (
+    payment_id INT AUTO_INCREMENT PRIMARY KEY,
+    pay_mode VARCHAR(50),
+    amount DECIMAL(10,2),
+    pay_date DATE,
+    srl_no INT,
+    pnr_no VARCHAR(20),
+    inst_type VARCHAR(50),
+    inst_amt DECIMAL(10,2)
+);
+
+INSERT INTO pay_info (pay_mode, amount, pay_date, srl_no, pnr_no, inst_type, inst_amt)
+VALUES ('Online', 750.00, '2025-06-01', 1, 'PNR1234567890', 'Full', 750.00);
+
+CREATE TABLE refund_rule (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    from_time TIME NOT NULL,
+    to_time TIME NOT NULL,
+    refundable_amt DECIMAL(5,2) NOT NULL
+);
+
+INSERT INTO refund_rule (from_time, to_time, refundable_amt)
+VALUES 
+('00:00:00', '06:00:00', 90.00),
+('06:00:01', '12:00:00', 75.00),
+('12:00:01', '18:00:00', 50.00),
+('18:00:01', '23:59:59', 25.00);
+
+
+
+
 
 
 
