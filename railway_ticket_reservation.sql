@@ -175,6 +175,14 @@ VALUES
 ('12:00:01', '18:00:00', 50.00),
 ('18:00:01', '23:59:59', 25.00);
 
+CREATE TABLE cancelled_ticket (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pnr_no VARCHAR(20) NOT NULL,
+    refund_amount DECIMAL(10, 2) NOT NULL,
+    cancelled_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
 
 
 
