@@ -36,7 +36,7 @@ public class TicketService {
         int srl = 1;
         for (PassengerInfo passengerInfo : request.getPassengers()) {
         	passengerInfo.setSrlNo(srl++);
-        	passengerInfo.setPnrNumber(pnr);
+        	passengerInfo.setPnr_no(pnr);
         }
 
         passengerRepository.saveAll(request.getPassengers(), pnr);

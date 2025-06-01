@@ -2,6 +2,8 @@ package com.ticketreservation.entiry;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
 
 @Data
@@ -16,5 +18,6 @@ public class PassengerInfo {
     private BigDecimal fare;
     private String seatNo;
     private String loginId;
-    private String pnrNumber;
+    @JsonProperty("pnrNumber")
+    private String pnr_no;
 }
